@@ -549,7 +549,7 @@ export class Templater {
 
         if (
             content_size == 0 &&
-            templater.plugin.settings.enable_folder_templates
+            file.parent
         ) {
             const folder_template_match =
                 templater.get_new_file_template_for_folder(file.parent);
@@ -568,8 +568,7 @@ export class Templater {
             }
             await templater.write_template_to_file(template_file, file);
         } else if (
-            content_size == 0 &&
-            templater.plugin.settings.enable_file_templates
+            content_size == 0
         ) {
             const file_template_match =
                 templater.get_new_file_template_for_file(file);
